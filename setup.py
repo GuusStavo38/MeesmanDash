@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='MeesmanDash',
-    version='0.0.2.dev2',
+    version='0.0.2.dev3',
     description='Meesman dashboard from scraped data',
     author='Guus van Heijningen',
     author_email='gvheijningen@gmail.com',
@@ -21,6 +21,7 @@ setup(
         'sqlalchemy',
         'sqlalchemy-utils',
         'configparser',
-        'argparse'
+        'argparse',
+        'mysqlclient'
    ]
 )

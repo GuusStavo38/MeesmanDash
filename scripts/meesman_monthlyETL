@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import argparse
+import datetime
 from MeesmanScraper.scraper import WebScraper
 
 parser = argparse.ArgumentParser()
@@ -12,4 +13,4 @@ MyMS = WebScraper(args.verbose)
 # Run transactie table ETL
 MyMS.etl_transactie_table()
 
-print("ETL jobs are finished")
+print("ETL jobs are finished on {}".format(datetime.datetime.now()))

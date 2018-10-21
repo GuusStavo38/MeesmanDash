@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='MeesmanDash',
-    version='0.0.2.dev4',
+    version='0.0.2',
     description='Meesman dashboard from scraped data',
     author='Guus van Heijningen',
     author_email='gvheijningen@gmail.com',
@@ -24,5 +24,5 @@ setup(
         'argparse',
         'mysqlclient',
         'lxml'
-   ]
+    ]
 )

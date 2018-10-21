@@ -10,8 +10,8 @@ setup(
     packages=find_packages('src'),
     package_dir={'': 'src'},
     scripts=[
-        'scripts/monthlyETL',
-        'scripts/weeklyETL'
+        'scripts/meesman_monthlyETL',
+        'scripts/meesman_weeklyETL'
     ],
     install_requires=[
         'selenium',

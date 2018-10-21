@@ -1,6 +1,7 @@
 from MeesmanScraper import config as cfg
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.chrome.options import Options
 import pandas as pd
 import dateparser
 import time
@@ -28,7 +29,9 @@ class WebScraper:
         # Extract
         if self.verbose:
             print("Extract transactie data")
-        browser = webdriver.Chrome()
+        options = Options()
+        options.headless = True
+        browser = webdriver.Chrome(options=options)
         browser.get('https://mijn.meesman.nl/login')
         username = browser.find_element_by_id('username')
         username.send_keys(self.user_meesman)
@@ -54,7 +57,7 @@ class WebScraper:
             df = pd.read_html(table_html, thousands='.', decimal=',')
             meesmantable = meesmantable.append(df[0])
             check = self.check_exists_by_link_text(browser, 'Volgende pagina')
-        browser.close()
+        browser.quit()
 
         # Transform
         if self.verbose:
@@ -86,7 +89,9 @@ class WebScraper:
         # Extract
         if self.verbose:
             print("Extract portefeuille data")
-        browser = webdriver.Chrome()
+        options = Options()
+        options.headless = True
+        browser = webdriver.Chrome(options=options)
         browser.get('https://mijn.meesman.nl/login')
         username = browser.find_element_by_id('username')
         username.send_keys(self.user_meesman)
@@ -102,7 +107,7 @@ class WebScraper:
         table_html = table.get_attribute('outerHTML')
         df = pd.read_html(table_html, thousands='.', decimal=',')
         meesmantable = df[0].dropna()
-        browser.close()
+        browser.quit()
 
         # Transform
         if self.verbose:

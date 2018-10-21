@@ -22,6 +22,7 @@ setup(
         'sqlalchemy-utils',
         'configparser',
         'argparse',
-        'mysqlclient'
+        'mysqlclient',
+        'lxml'
    ]
 )
